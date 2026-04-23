@@ -1,8 +1,10 @@
 import axios from "axios";
 
 export default class ApiService {
-  
-    static BASE_URL = "http://localhost:8090/api";
+
+
+     static BASE_URL = "http://localhost:8090/api";
+    //static BASE_URL = "http://18.221.120.102:8090/api"; //production base url
 
     static saveToken(token) {
         localStorage.setItem("token", token);
@@ -12,44 +14,45 @@ export default class ApiService {
         return localStorage.getItem("token");
     }
 
-    //save roles
+    //save role
     static saveRole(roles) {
         localStorage.setItem("roles", JSON.stringify(roles));
     }
 
-    //get roles from local storage
+    // Get the roles from local storage
     static getRoles() {
-        const roles = localStorage.getItem("roles");
+        const roles = localStorage.getItem('roles');
         return roles ? JSON.parse(roles) : null;
     }
 
-    //check if user has a specific role
-    static hadRole(role) {
+    // Check if the user has a specific role
+    static hasRole(role) {
         const roles = this.getRoles();
         return roles ? roles.includes(role) : false;
     }
 
     // Check if the user is an admin
     static isAdmin() {
-        return this.hadRole("ADMIN");
+        return this.hasRole('ADMIN');
     }
 
-    // Check if the user is an customer
+    // Check if the user is an instructor
     static isCustomer() {
-        return this.hadRole("CUSTOMER");
+        return this.hasRole('CUSTOMER');
     }
 
-    // Check if the user is a delivery person
+    // Check if the user is a student
     static isDeliveryPerson() {
-        return this.hadRole("DELIVERY");
+        return this.hasRole('DELIVERY');
     }
+
 
     static logout() {
         localStorage.removeItem("token");
         localStorage.removeItem("roles");
     }
 
-    static isAUthenticated() {
+    static isAthenticated() {
         const token = this.getToken();
         return !!token;
     }
@@ -59,10 +62,15 @@ export default class ApiService {
         return {
             Authorization: `Bearer ${token}`,
             "Content-Type": "application/json"
-        };
+        }
     }
 
 
+
+
+
+
+    
 
 
     // REGISTER USER
@@ -72,14 +80,23 @@ export default class ApiService {
     }
 
 
-    // LOGIN USER
+
     static async loginUser(loginData) {
         const resp = await axios.post(`${this.BASE_URL}/auth/login`, loginData);
         return resp.data;
     }
 
 
-    //USERS PROFILE MANAGEMENT SESSION
+
+
+
+
+
+
+
+
+
+     /**USERS PROFILE MANAGEMENT SESSION */
     static async myProfile() {
         const resp = await axios.get(`${this.BASE_URL}/users/account`, {
             headers: this.getHeader()
@@ -105,6 +122,16 @@ export default class ApiService {
         });
         return resp.data;
     }
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -384,7 +411,7 @@ export default class ApiService {
 
 
 
-    /**PAYMENT SECTION */
+    /**PAYMENT SESSION */
 
     //funtion to create payment intent
     static async proceedForPayment(body) {
@@ -417,6 +444,7 @@ export default class ApiService {
         });
         return resp.data;
     }
+
 
 
 
