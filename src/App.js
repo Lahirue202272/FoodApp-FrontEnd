@@ -7,6 +7,8 @@ import HomePage from "./components/home_menu/HomePage";
 import CategoriesPage from "./components/home_menu/CategoriesPage";
 import MenuPage from "./components/home_menu/MenuPage";
 import MenuDetailsPage from "./components/home_menu/MenuDetailsPage";
+import ProfilePage from "./components/profile_cart/ProfilePage";
+import UpdateProfilePage from "./components/profile_cart/UpdateProfilePage";
 
 
 function App() {
@@ -21,6 +23,8 @@ function App() {
           <Route path="/categories" element={<CategoriesPage />} />
           <Route path="/menu" element={<MenuPage />} />
           <Route path="/menu/:id" element={<MenuDetailsPage />} />
+          <Route path="/profile" element={<ProfilePage />} />
+          <Route path="/update" element={<UpdateProfilePage />} />
         </Routes>
       </div>
       <Footer />
