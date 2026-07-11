@@ -346,7 +346,7 @@ export default class ApiService {
     }
 
     static async decrementItem(menuId) {
-        const resp = await axios.put(`${this.BASE_URL}/cart/items/decrement/${menuId}`, null, {
+        const resp = await axios.put(`${this.BASE_URL}/cart/items/deccrement/${menuId}`, null, {
             headers: this.getHeader()
         });
         return resp.data;

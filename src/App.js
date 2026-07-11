@@ -12,6 +12,7 @@ import ProfilePage from "./components/profile_cart/ProfilePage";
 import UpdateProfilePage from "./components/profile_cart/UpdateProfilePage";
 import OrderHistoryPage from "./components/profile_cart/OrderHistoryPage";
 import LeaveReviewPage from "./components/profile_cart/LeaveReviewPage";
+import CartPage from "./components/profile_cart/CartPage";
 
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
           <Route path="/update" element={<UpdateProfilePage />} />
           <Route path="/my-order-history" element={<OrderHistoryPage />} />
           <Route path="/leave-review" element={<LeaveReviewPage />} />
+          <Route path="/cart" element={<CartPage />} />
 
           <Route path="*" element={<Navigate to={"/home"} />} />
         </Routes>
