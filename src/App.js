@@ -19,6 +19,7 @@ import AdminCategoriesPage from "./components/admin/AdminCategoriesPage";
 import AdminCategoryFormPage from "./components/admin/AdminCategoryFormPage";
 import AdminMenuPage from "./components/admin/AdminMenuPage";
 import AdminMenuFormPage from "./components/admin/AdminMenuFormPage";
+import AdminOrdersPage from "./components/admin/AdminOrdersPage";
 
 
 function App() {
@@ -47,9 +48,12 @@ function App() {
              <Route path="categories" element={<AdminCategoriesPage />} />
              <Route path="categories/new" element={<AdminCategoryFormPage />} />
              <Route path="categories/edit/:id" element={<AdminCategoryFormPage />} />
+
              <Route path="menu-items" element={<AdminMenuPage />} />
              <Route path="menu-items/new" element={<AdminMenuFormPage />} />
              <Route path="menu-items/edit/:id" element={<AdminMenuFormPage />} />
+
+             <Route path="orders" element={<AdminOrdersPage />} />
           </Route>
 
 
