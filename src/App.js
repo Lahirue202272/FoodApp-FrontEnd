@@ -20,6 +20,7 @@ import AdminCategoryFormPage from "./components/admin/AdminCategoryFormPage";
 import AdminMenuPage from "./components/admin/AdminMenuPage";
 import AdminMenuFormPage from "./components/admin/AdminMenuFormPage";
 import AdminOrdersPage from "./components/admin/AdminOrdersPage";
+import AdminOrderDetailsPage from "./components/admin/AdminOrderDetailsPage";
 
 
 function App() {
@@ -37,7 +38,7 @@ function App() {
           <Route path="/menu/:id" element={<MenuDetailsPage />} />
 
           {/* CUSTOMER ROUTES */}
-          <Route path="/profile" element={<CustomerRoute component={<ProfilePage />} />} />
+          <Route path="/profile" element={<CustomerRoute element={<ProfilePage />} />} />
           <Route path="/update" element={<CustomerRoute element={<UpdateProfilePage />} />} />
           <Route path="/my-order-history" element={<CustomerRoute element={<OrderHistoryPage />} />} />
           <Route path="/leave-review" element={<CustomerRoute element={<LeaveReviewPage />} />} />
@@ -54,6 +55,7 @@ function App() {
              <Route path="menu-items/edit/:id" element={<AdminMenuFormPage />} />
 
              <Route path="orders" element={<AdminOrdersPage />} />
+             <Route path="orders/:id" element={<AdminOrderDetailsPage />} />
           </Route>
 
 
