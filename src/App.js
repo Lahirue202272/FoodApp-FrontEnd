@@ -24,6 +24,7 @@ import AdminOrderDetailsPage from "./components/admin/AdminOrderDetailsPage";
 import AdminPaymentsPage from "./components/admin/AdminPaymentsPage";
 import AdminPaymentDetailPage from "./components/admin/AdminPaymentDetailPage";
 import AdminDashboardPage from "./components/admin/AdminDashboardPage";
+import AdminUserRegistration from "./components/auth/AdminUserRegistration";
 
 
 function App() {
@@ -64,6 +65,7 @@ function App() {
              <Route path="payments/:id" element={<AdminPaymentDetailPage />} />
 
              <Route index element={<AdminDashboardPage />} />
+             <Route path="register" element={<AdminUserRegistration />} />
           </Route>
 
 

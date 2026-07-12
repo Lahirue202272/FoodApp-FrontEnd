@@ -3402,6 +3402,7 @@ nav {
     margin-bottom: 0.5rem;
     font-weight: 600;
     color: #333;
+    
 }
 
 .admin-input {
@@ -3411,6 +3412,7 @@ nav {
     border-radius: 6px;
     font-size: 1rem;
     transition: border 0.3s;
+    box-sizing: border-box;
 }
 
 .admin-input:focus {
