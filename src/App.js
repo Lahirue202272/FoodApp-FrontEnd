@@ -23,6 +23,7 @@ import AdminOrdersPage from "./components/admin/AdminOrdersPage";
 import AdminOrderDetailsPage from "./components/admin/AdminOrderDetailsPage";
 import AdminPaymentsPage from "./components/admin/AdminPaymentsPage";
 import AdminPaymentDetailPage from "./components/admin/AdminPaymentDetailPage";
+import AdminDashboardPage from "./components/admin/AdminDashboardPage";
 
 
 function App() {
@@ -61,6 +62,8 @@ function App() {
 
              <Route path="payments" element={<AdminPaymentsPage />} />
              <Route path="payments/:id" element={<AdminPaymentDetailPage />} />
+
+             <Route index element={<AdminDashboardPage />} />
           </Route>
 
 
