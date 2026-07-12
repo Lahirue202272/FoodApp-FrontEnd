@@ -3,7 +3,6 @@ import { useParams, useNavigate } from 'react-router-dom';
 import ApiService from '../../services/ApiService';
 import { useError } from '../common/ErrorDisplay';
 
-
 const AdminPaymentDetailPage = () => {
 
     const { id } = useParams();
@@ -11,7 +10,6 @@ const AdminPaymentDetailPage = () => {
 
     const { ErrorDisplay, showError } = useError();
     const navigate = useNavigate();
-
 
     useEffect(() => {
         fetchPayment();
@@ -28,8 +26,6 @@ const AdminPaymentDetailPage = () => {
             showError(error.response?.data?.message || error.message);
         }
     };
-
-
     
     if (payment) {
         return (
@@ -171,6 +167,5 @@ const AdminPaymentDetailPage = () => {
             </div>
         );
     }
-
 }
 export default AdminPaymentDetailPage;
