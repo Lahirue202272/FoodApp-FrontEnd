@@ -4,7 +4,7 @@ export default class ApiService {
 
 
     // static BASE_URL = "http://localhost:8090/api";
-    static BASE_URL = "http://3.109.133.202:8090/api"; //production base url
+    static BASE_URL = process.env.REACT_APP_BASE_URL; //production base url
 
     static saveToken(token) {
         localStorage.setItem("token", token);
