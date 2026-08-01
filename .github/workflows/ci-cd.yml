@@ -34,5 +34,6 @@ jobs:
       - name: Delete old container
         run: docker rm -f food-app-container
 
+      #Change the port 3000 to 80
       - name: Run Docker Container
         run: docker run -d -p 80:80 --name food-app-container lahiruniroshan/food-app-frontend
