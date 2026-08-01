@@ -41,19 +41,18 @@ const AdminDashboardPage = () => {
             // Fetch all necessary data from backekd
             const ordersResponse = await ApiService.getAllOrders();
             const menuResponse = await ApiService.getAllMenus();
-            const paymentsResponse = await ApiService.getAllPayments();
+            // const paymentsResponse = await ApiService.getAllPayments();
             const activeCustomerResponse = await ApiService.countTotalActiveCustomers();
 
             const activeCustomers = activeCustomerResponse.data;
 
             if (ordersResponse.statusCode === 200 &&
-                menuResponse.statusCode === 200 &&
-                paymentsResponse.statusCode === 200) {
+                menuResponse.statusCode === 200) {
 
 
                 const orders = ordersResponse.data.content;
                 const menu = menuResponse.data;
-                const payments = paymentsResponse.data;
+                // const payments = paymentsResponse.data;
 
                 // Calculate statistics
                 const totalOrders = orders.length;
@@ -84,20 +83,17 @@ const AdminDashboardPage = () => {
                     .slice(0, 5);
 
 
-                //total revenue calculation
-                const totalRevenue = payments.reduce((sum, payment) =>
-                    payment.paymentStatus === 'COMPLETED' ? sum + payment.amount : sum, 0);
-
-
-                // Revenue by month (simplified)
+                // Default values instead of payment-derived stats
+                const totalRevenue = 0;
                 const revenueByMonth = Array(12).fill(0);
 
-                payments.forEach(payment => {
-                    if (payment.paymentStatus === 'COMPLETED') {
-                        const month = new Date(payment.paymentDate).getMonth();
-                        revenueByMonth[month] += payment.amount;
-                    }
-                });
+
+                // payments.forEach(payment => {
+                //     if (payment.paymentStatus === 'COMPLETED') {
+                //         const month = new Date(payment.paymentDate).getMonth();
+                //         revenueByMonth[month] += payment.amount;
+                //     }
+                // });
 
 
                 setStats({

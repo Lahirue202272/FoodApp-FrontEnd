@@ -3,8 +3,8 @@ import axios from "axios";
 export default class ApiService {
 
 
-     static BASE_URL = "http://localhost:8090/api";
-    //static BASE_URL = "http://18.221.120.102:8090/api"; //production base url
+    // static BASE_URL = "http://localhost:8090/api";
+    static BASE_URL = "http://3.109.133.202:8090/api"; //production base url
 
     static saveToken(token) {
         localStorage.setItem("token", token);
@@ -411,39 +411,39 @@ export default class ApiService {
 
 
 
-    /**PAYMENT SESSION */
+    // /**PAYMENT SESSION */
 
-    //funtion to create payment intent
-    static async proceedForPayment(body) {
+    // //funtion to create payment intent
+    // static async proceedForPayment(body) {
 
 
-        const resp = await axios.post(`${this.BASE_URL}/payments/pay`, body, {
-            headers: this.getHeader()
-        });
-        return resp.data; //return the resp containg the stripe transaction id for this transaction
-    }
+    //     const resp = await axios.post(`${this.BASE_URL}/payments/pay`, body, {
+    //         headers: this.getHeader()
+    //     });
+    //     return resp.data; //return the resp containg the stripe transaction id for this transaction
+    // }
 
-    //TO UPDATE PAYMENT WHEN IT HAS BEEN COMPLETED
-    static async updateOrderPayment(body) {
-        const resp = await axios.put(`${this.BASE_URL}/payments/update`, body, {
-            headers: this.getHeader()
-        });
-        return resp.data;
-    }
+    // //TO UPDATE PAYMENT WHEN IT HAS BEEN COMPLETED
+    // static async updateOrderPayment(body) {
+    //     const resp = await axios.put(`${this.BASE_URL}/payments/update`, body, {
+    //         headers: this.getHeader()
+    //     });
+    //     return resp.data;
+    // }
 
-    static async getAllPayments() {
-        const resp = await axios.get(`${this.BASE_URL}/payments/all`, {
-            headers: this.getHeader()
-        });
-        return resp.data;
-    }
+    // static async getAllPayments() {
+    //     const resp = await axios.get(`${this.BASE_URL}/payments/all`, {
+    //         headers: this.getHeader()
+    //     });
+    //     return resp.data;
+    // }
 
-    static async getAPaymentById(paymentId) {
-        const resp = await axios.get(`${this.BASE_URL}/payments/${paymentId}`, {
-            headers: this.getHeader()
-        });
-        return resp.data;
-    }
+    // static async getAPaymentById(paymentId) {
+    //     const resp = await axios.get(`${this.BASE_URL}/payments/${paymentId}`, {
+    //         headers: this.getHeader()
+    //     });
+    //     return resp.data;
+    // }
 
 
 
